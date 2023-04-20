@@ -14,8 +14,8 @@ const ingredients = [
 // pobranie listy składników
 const ingredientsList = document.querySelector('#ingredients');
 
-// iteracja po elementach tablicy ingredients
-ingredients.forEach((ingredient) => {
+// tworznie nowej tablicy
+const liAll = ingredients.map((ingredient) => {
   // utworzenie nowego elementu li
   const li = document.createElement('li');
 
@@ -24,7 +24,7 @@ ingredients.forEach((ingredient) => {
 
   // dodanie klasy 'item' do elementu
   li.classList.add('item');
-
-  // dodanie elementu li do listy składników
-  ingredientsList.appendChild(li);
+  return li;
 });
+// dodanie elementu li do listy składników
+ingredientsList.append(...liAll);

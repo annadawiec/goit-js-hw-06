@@ -20,14 +20,16 @@ const images = [
 // pobranie listy galerii
 const galleryList = document.querySelector('.gallery');
 
-// iteracja po elementach tablicy images
-images.forEach((image) => {
-  // utworzenie nowego elementu li z tekstem
-  const li = `<li><img src="${image.url}" alt="${image.alt}" width=400></li>`;
+// utworzenie nowej tablicy
+const imageAll = images
+  .map(
+    // eslint-disable-next-line comma-dangle, no-trailing-spaces
+    (image) => `<li><img src="${image.url}" alt="${image.alt}" width=400></li>`
+  )
+  .join('');
 
-  // dodanie elementu li do listy galerii
-  galleryList.insertAdjacentHTML('beforeend', li);
-});
+// dodanie elementu li do listy galerii
+galleryList.insertAdjacentHTML('beforeend', imageAll);
 
 galleryList.style.display = 'flex';
 galleryList.style.flexDirection = 'column';

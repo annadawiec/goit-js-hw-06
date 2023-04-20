@@ -12,9 +12,11 @@ const buttons = document.querySelectorAll('#counter button');
 // funkcja wywoływana gdy przycisk jest wcinięty
 function handleClick(event) {
   if (event.target.dataset.action === 'decrement') {
-    counterValue -= 1;
+    // eslint-disable-next-line no-plusplus
+    counterValue--;
   } else if (event.target.dataset.action === 'increment') {
-    counterValue += 1;
+    // eslint-disable-next-line no-plusplus
+    counterValue++;
   }
 
   // aktualizowanie tekstu na wyświetlaczu licznika
